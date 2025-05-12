@@ -33,6 +33,7 @@
   <developer_name>eden Emulator Team</developer_name>
   <content_rating type="oars-1.0"/>
   <releases>
+    <release version="0.0.2-pre-alpha" date="2025-05-11"/>
     <release version="0.0.1-pre-alpha" date="2025-05-10"/>
   </releases>
 </component>
