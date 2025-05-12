@@ -1,11 +1,11 @@
 {
-    "app-id": "org.yuzu_emu.yuzu",
+    "app-id": "dev.eden_emu.eden",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-23.08",
+    "runtime-version": "6.7",
     "sdk": "org.kde.Sdk",
     "base": "io.qt.qtwebengine.BaseApp",
-    "base-version": "5.15-23.08",
-    "command": "yuzu-launcher",
+    "base-version": "6.7",
+    "command": "eden-launcher",
     "finish-args": [
         "--device=all",
         "--socket=fallback-x11",
@@ -206,12 +206,12 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.84.0/source/boost_1_84_0.tar.bz2",
+                    "url": "https://archives.boost.io/release/1.84.0/source/boost_1_84_0.tar.bz2",
                     "sha256": "cc4b893acf645c9d4b698e9a0f08ca8846aa5d6c68275c14c3e7949c24109454",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 6845,
-                        "url-template": "https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${version0}_${version1}_${version2}.tar.bz2"
+                        "url-template": "https://archives.boost.io/release/$version/source/boost_${version0}_${version1}_${version2}.tar.bz2"
                     }
                 }
             ]
@@ -260,25 +260,22 @@
             ]
         },
         {
-            "name": "yuzu",
+            "name": "eden",
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
                 "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
                 "-DENABLE_QT_TRANSLATION=ON",
-                "-DYUZU_ENABLE_COMPATIBILITY_REPORTING=ON",
-                "-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF",
                 "-DYUZU_USE_QT_WEB_ENGINE=ON",
-                "-DYUZU_USE_BUNDLED_FFMPEG=ON",
-                "-DDISPLAY_VERSION=1734",
-                "-DBUILD_TAG=mainline-1734",
-                "-DBUILD_REPOSITORY=yuzu-emu/yuzu-mainline"
+                "-DDISPLAY_VERSION=0.0.1",
+                "-DBUILD_TAG=0.0.1-pre-alpha",
+                "-DBUILD_REPOSITORY=eden-emu/eden"
             ],
             "build-options": {
                 "env": {
-                    "TITLEBARFORMATIDLE": "yuzu {}",
-                    "TITLEBARFORMATRUNNING": "yuzu {} | {}"
+                    "TITLEBARFORMATIDLE": "eden {}",
+                    "TITLEBARFORMATRUNNING": "eden {} | {}"
                 },
                 "arch": {
                     "aarch64": {
@@ -286,42 +283,45 @@
                             "-DENABLE_OPENGL=OFF"
                         ]
                     }
-                }
+                },
+                "strip": true,
+                "no-debuginfo": true
             },
             "cleanup": [
                 "/share/man",
                 "/share/pixmaps"
             ],
             "post-install": [
-                "install -Dm755 ../yuzu-launcher.sh /app/bin/yuzu-launcher",
-                "install -Dm644 ../org.yuzu_emu.yuzu.metainfo.xml /app/share/metainfo/org.yuzu_emu.yuzu.metainfo.xml",
-                "install -Dm644 ../org.yuzu_emu.yuzu.svg /app/share/icons/hicolor/scalable/apps/org.yuzu_emu.yuzu.svg",
-                "desktop-file-edit --set-key StartupWMClass --set-value yuzu --set-key Exec --set-value yuzu-launcher /app/share/applications/org.yuzu_emu.yuzu.desktop",
+                "install -Dm755 ../eden-launcher.sh /app/bin/eden-launcher",
+                "install -Dm644 ../dev.eden_emu.eden.metainfo.xml /app/share/metainfo/dev.eden_emu.eden.metainfo.xml",
+                "install -Dm644 ../dev.eden_emu.eden.svg /app/share/icons/hicolor/scalable/apps/dev.eden_emu.eden.svg",
+                "mv /app/share/applications/org.yuzu_emu.yuzu.desktop /app/share/applications/dev.eden_emu.eden.desktop",
+                "desktop-file-edit --set-key Icon --set-value dev.eden_emu.eden --set-key Exec --set-value eden-launcher /app/share/applications/dev.eden_emu.eden.desktop",
                 "rm -rf /app/share/appdata"
             ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/yuzu-emu/yuzu-mainline.git",
-                    "tag": "mainline-0-1734",
-                    "commit": "537296095ab24eddcb196b5ef98004f91de9c8c2",
+                    "url": "https://git.eden-emu.dev/eden-emu/eden.git",
+                    "tag": "0.0.1-pre-alpha",
+                    "commit": "5bbb9eba32734219cd9b57dfeefaa028b1e8ab02",
                     "disable-shallow-clone": true,
                     "x-checker-data": {
                         "type": "git",
-                        "tag-pattern": "^(mainline-0-\\d+)$"
+                        "tag-pattern": "^(\\d+\\.\\d+\\.\\d+-pre-alpha)$"
                     }
                 },
                 {
                     "type": "file",
-                    "path": "org.yuzu_emu.yuzu.metainfo.xml"
+                    "path": "dev.eden_emu.eden.metainfo.xml"
                 },
                 {
                     "type": "file",
-                    "path": "org.yuzu_emu.yuzu.svg"
+                    "path": "dev.eden_emu.eden.svg"
                 },
                 {
                     "type": "file",
-                    "path": "yuzu-launcher.sh"
+                    "path": "eden-launcher.sh"
                 },
                 {
                     "type": "file",

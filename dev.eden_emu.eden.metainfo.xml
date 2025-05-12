@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.eden_emu.eden</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>eden</name>
+  <summary>Nintendo Switch emulator</summary>
+  <description>
+    <p>Eden is the world's most popular open-source Nintendo Switch emulator, forked from the Yuzu emulator — started by former Citron developer Camille LaVey and the Eden team.</p>
+    <p>The emulator is capable of running most commercial games at full speed, provided you meet the necessary hardware requirements.</p>
+    <p>A list of supported games will be available in future. Please be patient.</p>
+    <p>Check out our website for the latest news on exciting features, monthly progress reports, and more!</p>
+  </description>
+  <categories>
+    <category>Game</category>
+    <category>Emulator</category>
+  </categories>
+  <keywords>
+    <keyword>switch</keyword>
+    <keyword>emulator</keyword>
+  </keywords>
+  <launchable type="desktop-id">dev.eden_emu.eden.desktop</launchable>
+  <provides>
+    <binary>eden</binary>
+    <binary>eden-cmd</binary>
+  </provides>
+  <requires>
+    <memory>8192</memory>
+  </requires>
+  <recommends>
+    <memory>16384</memory>
+  </recommends>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer_name>eden Emulator Team</developer_name>
+  <content_rating type="oars-1.0"/>
+  <releases>
+    <release version="0.0.1-pre-alpha" date="2025-05-10"/>
+  </releases>
+</component>

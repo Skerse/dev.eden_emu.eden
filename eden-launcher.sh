@@ -2,12 +2,12 @@
 
 report_error() {
     read -r -d '|' MESSAGE <<EOF
-Unfortunately, yuzu seems to have crashed.
-We kindly ask you to submit a bug report to <a href="https://github.com/flathub/org.yuzu_emu.yuzu/issues">https://github.com/flathub/org.yuzu_emu.yuzu/issues</a>.
+Unfortunately, eden seems to have crashed.
+We kindly ask you to submit a bug report to <a href="https://github.com/Skerse/dev.eden_emu.eden/issues">https://github.com/Skerse/dev.eden_emu.eden/issues</a>.
 
-When submitting a bug report, please attach your <b>system information</b> and the <b>yuzu log file</b>.
+When submitting a bug report, please attach your <b>system information</b> and the <b>eden log file</b>.
 You seem to be using ${XDG_SESSION_DESKTOP} ${DESKTOP_SESSION} (${XDG_SESSION_TYPE}):
-To obtain yuzu log files, please see <a href="https://yuzu-emu.org/help/reference/log-files/">this guide</a>.
+To obtain eden log files, please see <a href="https://yuzu-mirror.github.io/help/reference/log-files">this guide</a>.
 To obtain your system information, please install <tt>inxi</tt> and run <tt>inxi -v3</tt>. |
 EOF
     zenity --warning --no-wrap --title "That's awkward ..." --text "$MESSAGE"
@@ -19,6 +19,6 @@ for i in {0..9}; do
 done
 
 
-if ! prlimit --nofile=8192 yuzu "$@"; then
+if ! prlimit --nofile=8192 eden "$@"; then
     report_error
 fi

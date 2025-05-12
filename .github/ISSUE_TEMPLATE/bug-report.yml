@@ -4,8 +4,8 @@ description: 'Please use this template if you encountered rendering issues or gl
 body:
   - type: input
     attributes:
-      label: yuzu Version
-      description: 'The version of yuzu you were using when the issue happened (can be found on the title bar)'
+      label: eden Version
+      description: 'The version of eden you were using when the issue happened (can be found on the title bar)'
   - type: textarea
     attributes:
       label: Description
@@ -27,7 +27,7 @@ body:
     attributes:
       label: Logs
       description: |
-        Please attach the yuzu log file here (how to obtain it: https://yuzu-emu.org/help/reference/log-files/)
+        Please attach the eden log file here (how to obtain it: https://yuzu-mirror.github.io/help/reference/log-files)
         Please **avoid pasting the log** into this box. Instead, use the __file upload__ function to attach the file.
     validations:
       required: true
