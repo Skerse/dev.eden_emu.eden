@@ -12,7 +12,7 @@ To build and install the Flatpak version of Eden Emulator, please follow these s
 > Make sure you have the required flatpak libraries installed: 
 > 
 > ```
-> flatpak install org.kde.Platform//6.7 org.kde.Sdk//6.7 io.qt.qtwebengine.BaseApp//6.7.1
+> flatpak install org.kde.Platform//6.7 org.kde.Sdk//6.7 io.qt.qtwebengine.BaseApp//6.7
 > ```
 > 
 > If you already do, you can skip this step.
